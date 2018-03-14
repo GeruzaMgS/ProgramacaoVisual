@@ -1,0 +1,27 @@
+@model WebMvc.Models.PessoaViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <th>Nome</th>
+        <th>Ações</th>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Items) {
+    <tr>
+        <td>@item.Nome</td>
+        <td>
+            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> 
+        </td>
+    </tr>
+}
+    </tbody>
+</table>
